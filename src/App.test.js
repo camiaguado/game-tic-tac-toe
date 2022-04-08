@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App';
 
-test('can play a game of tic tac toe', () => {
+test('Can play a game of tic tac toe', () => {
   render(<App />)
   const [
     s1, s2, s3,
@@ -45,7 +45,7 @@ test('can play a game of tic tac toe', () => {
   expect(s4).toHaveTextContent('')
 })
 
-test('can play a game of tic tac toe', () => {
+test('Can play a game of tic tac toe', () => {
   render(<App />)
   const [
     s1, s2, s3,

@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { useLocalStorageState } from './utils'
+import VanillaTilt from 'vanilla-tilt'
+
 
 function Board() {
   const [squares, setSquares] = useLocalStorageState(
@@ -10,6 +12,21 @@ function Board() {
   const nextValue = calculateNextValue(squares)
   const winner = calculateWinner(squares)
   const status = calculateStatus(winner, squares, nextValue)
+
+  const buttonRef = React.useRef()
+
+  React.useEffect(() => {
+    const tiltNode = buttonRef.current
+      VanillaTilt.init(tiltNode, {
+        max: 25,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.5,
+      })
+    return () => {
+      tiltNode.vanillaTilt.destroy()
+    }
+  }, [])
 
   function selectSquare(square) {
     if (winner || squares[square]) {
@@ -51,7 +68,7 @@ function Board() {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button className="restart" onClick={restart}>
+      <button ref={buttonRef} className="restart" onClick={restart}>
         restart
       </button>
     </div>

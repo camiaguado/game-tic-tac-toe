@@ -1,6 +1,6 @@
 #TIC - TAC - TOE Game
 
-https://ca-tic-tac-toe.herokuapp.com/
+Link al juego (https://tic-tac-toe-game-seven-iota.vercel.app/)
 
 #Getting Started with Create React App
 
